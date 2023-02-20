@@ -134,7 +134,7 @@ let questions = [
     ],
   },
   {
-    question: "This test was easy",
+    question: "Java is different than Javascript",
     answers: [
       { text: "no", correct: false },
       { text: "yes", correct: true },
