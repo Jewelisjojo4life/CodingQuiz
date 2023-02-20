@@ -109,35 +109,35 @@ function clearStatusClass(element) {
 
 let questions = [
   {
-    question: "What is 2 + 2?",
+    question: "What does a Boolean have",
     answers: [
-      { text: "4", correct: true },
-      { text: "22", correct: false },
+      { text: "True false", correct: true },
+      { text: "numbers", correct: false },
     ],
   },
   {
-    question: "What color is the sky",
+    question: "What does css stand for",
     answers: [
-      { text: "blue", correct: true },
-      { text: "red", correct: false },
-      { text: "rainbow", correct: false },
-      { text: "orange", correct: false },
+      { text: "Cascading Style Sheets", correct: true },
+      { text: "Catching Style Sheets", correct: false },
+      { text: "Colorful Style Sheets", correct: false },
+      { text: "Case Style Sheets", correct: false },
     ],
   },
   {
-    question: "sharks live where?",
+    question: "If else statements are encloses in what?",
     answers: [
-      { text: "pool", correct: false },
-      { text: "ocean", correct: true },
-      { text: "sky", correct: false },
-      { text: "trees", correct: false },
+      { text: "curly brackets", correct: false },
+      { text: "parenthesis", correct: true },
+      { text: "nothing", correct: false },
+      { text: "quatations", correct: false },
     ],
   },
   {
-    question: "What is 4 * 2?",
+    question: "This test was easy",
     answers: [
-      { text: "6", correct: false },
-      { text: "8", correct: true },
+      { text: "no", correct: false },
+      { text: "yes", correct: true },
     ],
   },
 ];
