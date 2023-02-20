@@ -3,10 +3,34 @@ let nextButton = document.getElementById("next-btn");
 let questionContainerElement = document.getElementById("question-container");
 let questionElement = document.getElementById("question");
 let answerButtonsElement = document.getElementById("answer-buttons");
-
 let shuffledQuestions, currentQuestionIndex;
+let correctWrong = document.getElementById("correct-wrong");
+let timerEl = document.getElementById("time");
+let resultBox = document.getElementById("resultBox-container");
+let correctAnswers = 0;
+let restartButton = document.getElementById("restart-btn");
+document.getElementById("start-btn").addEventListener("click", function () {
+  var timeleft = 120;
 
+  var downloadTimer = setInterval(function function1() {
+    document.getElementById("countdown").innerHTML =
+      timeleft + "seconds remaining";
+    timeleft -= 1;
+
+    if (timeleft <= -2) {
+      clearInterval(downloadTimer);
+      startButton.classList.remove("hide");
+      document.getElementById("countdown").innerHTML = "Times up!";
+
+      alert("Times up!! :(");
+    }
+  }, 1000);
+});
+
+let start = document.querySelector("#start");
 startButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", clearInterval);
+
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
@@ -28,7 +52,7 @@ function setNextQuestion() {
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
-    let button = document.createElement("button");
+    const button = document.createElement("button");
     button.innerText = answer.text;
     button.classList.add("btn");
     if (answer.correct) {
@@ -48,15 +72,22 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-  let selectedButton = e.target;
-  let correct = selectedButton.dataset.correct;
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  if (correct) {
+    correctAnswers++;
+  }
   setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
+    resultBox.classList.remove("hide");
   } else {
+    resultBox.innerText =
+      correctAnswers.toString() + "/" + shuffledQuestions.length.toString();
+
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
   }
@@ -78,35 +109,35 @@ function clearStatusClass(element) {
 
 let questions = [
   {
-    question: "The external JavaScript file must contain the <script> tag",
+    question: "What is 2 + 2?",
     answers: [
-      { text: "false", correct: true },
-      { text: "true", correct: false },
+      { text: "4", correct: true },
+      { text: "22", correct: false },
     ],
   },
   {
-    question: " Which of the following is an advantage of using JavaScript?",
+    question: "What color is the sky",
     answers: [
-      { text: "Less server interation", correct: true },
-      { text: "Immediate feedback", correct: true },
-      { text: "Making the website interactive", correct: true },
-      { text: "All of the above", correct: true },
+      { text: "blue", correct: true },
+      { text: "red", correct: false },
+      { text: "rainbow", correct: false },
+      { text: "orange", correct: false },
     ],
   },
   {
-    question: "what is a Bolean?",
+    question: "sharks live where?",
     answers: [
-      { text: "True False", correct: true },
-      { text: "NaN", correct: false },
-      { text: "numbers", correct: false },
-      { text: "IDK", correct: false },
+      { text: "pool", correct: false },
+      { text: "ocean", correct: true },
+      { text: "sky", correct: false },
+      { text: "trees", correct: false },
     ],
   },
   {
-    question: "This quiz was fun",
+    question: "What is 4 * 2?",
     answers: [
-      { text: "Yes", correct: true },
-      { text: "Super Yes", correct: true },
+      { text: "6", correct: false },
+      { text: "8", correct: true },
     ],
   },
 ];

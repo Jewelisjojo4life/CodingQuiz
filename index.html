@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script defer src='script.js'></script>
-    
- 
-  <title>Coding quiz</title>
- </head>
+    <script defer src="script.js"></script>
+    <title>Coding quiz</title>
+  </head>
   <body>
-    
-    <div class="container">
-     <div id="question-container" class="hide">
-        <div id="question" >Question</div>
-         <div id="answer-buttons"  class="btn grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
-   </div>
- </div>
- <div class="controls">
-     <button id="start-btn" class="start-btn btn">Start</button>
-     <button id="next-btn" class="next-btn btn hide">Next</button>
+    <div id="start page ">
+      <div id="start-text hide">
+        <h1>Welcome to the coding quiz!</h1>
+        <p>
+          Answer the questions correctly and Win! 
+        </p>
+
+        <div id="question-container" class="hide">
+          <div id="question">Question</div>
+
+          <div id="answer-buttons" class="btn-grid">
+            <button class="btn correct">Answer 1</button>
+            <button class="btn wrong">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+          </div>
+        </div>
+      </div>
+      
+        <button class="highscore-btn hide">View Highscore</button>
+
+        <div>
+          <div>Time Remaining: <span id="countdown">0</span></div>
+          <div id="resultBox-container" class="resultBox "></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+        <button id="restart-btn" class="restart-btn btn hide">restartButton</button>
+      </div>
     </div>
-  </div>
- 
- <body>
+  </body>
 </html>
